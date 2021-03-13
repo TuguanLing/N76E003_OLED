@@ -8,9 +8,9 @@
 #define     ERASE_LDROM				
 #define     READ_LDROM				
 #define     PROGRAM_LDROM			
-#define     READ_CFG					0xC0
+#define     READ_CFG				0xC0
 #define     PROGRAM_CFG				0xE1
-#define			READ_UID					0x04
+#define		READ_UID				0x04
 
 void  InitialUART0_Timer1(UINT32 u32Baudrate); //T1M = 1, SMOD = 1
 void  InitialUART0_Timer3(UINT32 u32Baudrate); //Timer3 as Baudrate, SMOD=1, Prescale=0

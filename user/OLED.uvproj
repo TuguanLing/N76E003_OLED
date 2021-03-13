@@ -324,7 +324,7 @@
               <MiscControls></MiscControls>
               <Define>FOSC_160000</Define>
               <Undefine></Undefine>
-              <IncludePath>..\..\Include</IncludePath>
+              <IncludePath>..\Include;..\SRC;..\Common</IncludePath>
             </VariousControls>
           </C51>
           <Ax51>
@@ -389,12 +389,12 @@
             <File>
               <FileName>Common.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\Common\Common.c</FilePath>
+              <FilePath>..\Common\Common.c</FilePath>
             </File>
             <File>
               <FileName>Delay.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\Common\Delay.c</FilePath>
+              <FilePath>..\Common\Delay.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -404,7 +404,17 @@
             <File>
               <FileName>STARTUP.A51</FileName>
               <FileType>2</FileType>
-              <FilePath>..\..\Startup\STARTUP.A51</FilePath>
+              <FilePath>..\Startup\STARTUP.A51</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>SRC</GroupName>
+          <Files>
+            <File>
+              <FileName>oled.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\SRC\oled.c</FilePath>
             </File>
           </Files>
         </Group>

@@ -18,8 +18,8 @@
 //----------------------------------------------------------------------------------
 void InitialUART0_Timer1(UINT32 u32Baudrate)    //T1M = 1, SMOD = 1
 {
-		P06_Quasi_Mode;		//Setting UART pin as Quasi mode for transmit
-		P07_Quasi_Mode;		//Setting UART pin as Quasi mode for transmit
+	P06_Quasi_Mode;		//Setting UART pin as Quasi mode for transmit
+	P07_Quasi_Mode;		//Setting UART pin as Quasi mode for transmit
 	
     SCON = 0x50;     	//UART0 Mode1,REN=1,TI=1
     TMOD |= 0x20;    	//Timer1 Mode1
@@ -34,30 +34,30 @@ void InitialUART0_Timer1(UINT32 u32Baudrate)    //T1M = 1, SMOD = 1
 #ifdef FOSC_166000
     TH1 = 256 - (1037500/u32Baudrate);         		     /*16.6 MHz */
 #endif
-    set_TR1;
-		set_TI;						//For printf function must setting TI = 1
+	set_TR1;
+	set_TI;						//For printf function must setting TI = 1
 }
 //---------------------------------------------------------------
 void InitialUART0_Timer3(UINT32 u32Baudrate) //use timer3 as Baudrate generator
 {
-		P06_Quasi_Mode;		//Setting UART pin as Quasi mode for transmit
-		P07_Quasi_Mode;		//Setting UART pin as Quasi mode for transmit	
-	
-    SCON = 0x50;     //UART0 Mode1,REN=1,TI=1
-    set_SMOD;        //UART0 Double Rate Enable
-    T3CON &= 0xF8;   //T3PS2=0,T3PS1=0,T3PS0=0(Prescale=1)
-    set_BRCK;        //UART0 baud rate clock source = Timer3
+	P06_Quasi_Mode;		//Setting UART pin as Quasi mode for transmit
+	P07_Quasi_Mode;		//Setting UART pin as Quasi mode for transmit	
+
+	SCON = 0x50;     //UART0 Mode1,REN=1,TI=1
+	set_SMOD;        //UART0 Double Rate Enable
+	T3CON &= 0xF8;   //T3PS2=0,T3PS1=0,T3PS0=0(Prescale=1)
+	set_BRCK;        //UART0 baud rate clock source = Timer3
 
 #ifdef FOSC_160000
-		RH3    = HIBYTE(65536 - (1000000/u32Baudrate)-1);  		/*16 MHz */
-		RL3    = LOBYTE(65536 - (1000000/u32Baudrate)-1);			/*16 MHz */
+	RH3    = HIBYTE(65536 - (1000000/u32Baudrate)-1);  		/*16 MHz */
+	RL3    = LOBYTE(65536 - (1000000/u32Baudrate)-1);			/*16 MHz */
 #endif
 #ifdef FOSC_166000
     RH3    = HIBYTE(65536 - (1037500/u32Baudrate)); 			/*16.6 MHz */
     RL3    = LOBYTE(65536 - (1037500/u32Baudrate)); 			/*16.6 MHz */
 #endif
-    set_TR3;         //Trigger Timer3
-		set_TI;					 //For printf function must setting TI = 1
+	set_TR3;         //Trigger Timer3
+	set_TI;					 //For printf function must setting TI = 1
 }
 
 UINT8 Receive_Data_From_UART0(void)
@@ -82,20 +82,20 @@ void Send_Data_To_UART0 (UINT8 c)
 //----------------------------------------------------------------------------------
 void InitialUART1_Timer3(UINT32 u32Baudrate) //use timer3 as Baudrate generator
 {
-		P02_Quasi_Mode;		//Setting UART pin as Quasi mode for transmit
-		P16_Quasi_Mode;		//Setting UART pin as Quasi mode for transmit
-	
-	  SCON_1 = 0x50;   	//UART1 Mode1,REN_1=1,TI_1=1
-    T3CON = 0x08;   	//T3PS2=0,T3PS1=0,T3PS0=0(Prescale=1), UART1 in MODE 1
-		clr_BRCK;
+	P02_Quasi_Mode;		//Setting UART pin as Quasi mode for transmit
+	P16_Quasi_Mode;		//Setting UART pin as Quasi mode for transmit
+
+	SCON_1 = 0x50;   	//UART1 Mode1,REN_1=1,TI_1=1
+	T3CON = 0x08;   	//T3PS2=0,T3PS1=0,T3PS0=0(Prescale=1), UART1 in MODE 1
+	clr_BRCK;
 	
 #ifdef FOSC_160000
-		RH3    = HIBYTE(65536 - (1000000/u32Baudrate)-1);  		/*16 MHz */
-		RL3    = LOBYTE(65536 - (1000000/u32Baudrate)-1);			/*16 MHz */
+	RH3    = HIBYTE(65536 - (1000000/u32Baudrate)-1);  		/*16 MHz */
+	RL3    = LOBYTE(65536 - (1000000/u32Baudrate)-1);			/*16 MHz */
 #endif
 #ifdef FOSC_166000
-		RH3    = HIBYTE(65536 - (1037500/u32Baudrate));  			/*16.6 MHz */
-		RL3    = LOBYTE(65536 - (1037500/u32Baudrate));				/*16.6 MHz */
+	RH3    = HIBYTE(65536 - (1037500/u32Baudrate));  			/*16.6 MHz */
+	RL3    = LOBYTE(65536 - (1037500/u32Baudrate));				/*16.6 MHz */
 #endif
     set_TR3;         //Trigger Timer3
 }
