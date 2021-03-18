@@ -324,7 +324,7 @@
               <MiscControls></MiscControls>
               <Define>FOSC_160000</Define>
               <Undefine></Undefine>
-              <IncludePath>..\Include;..\SRC;..\Common</IncludePath>
+              <IncludePath>..\Include;..\API;..\Common</IncludePath>
             </VariousControls>
           </C51>
           <Ax51>
@@ -409,12 +409,12 @@
           </Files>
         </Group>
         <Group>
-          <GroupName>SRC</GroupName>
+          <GroupName>API</GroupName>
           <Files>
             <File>
               <FileName>oled.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\SRC\oled.c</FilePath>
+              <FilePath>..\API\oled.c</FilePath>
             </File>
           </Files>
         </Group>
